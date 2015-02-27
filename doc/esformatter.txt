@@ -1,0 +1,30 @@
+*esformatter.txt* Automatically format your ECMAScript files.
+
+===============================================================================
+USAGE                                                             *esformatter*
+
+To format the whole file simple call `:Esformatter` while on normal mode.
+
+To format just one block of code select it on visual mode and execute
+`:'<,'>EsformatterVisual`.
+
+To make it easier you can create a mapping on your `.vimrc` file like:
+
+```js
+" will run esformatter after pressing <leader> followed by the "e" and "s" keys
+nnoremap <silent> <leader>es :Esformatter<CR>
+vnoremap <silent> <leader>es :EsformatterVisual<CR>
+```
+
+===============================================================================
+REPOSITORY
+
+https://github.com/millermedeiros/vim-esformatter
+
+
+===============================================================================
+LICENSE
+
+released under the wtfpl http://sam.zoy.org/wtfpl/COPYING
+
+
