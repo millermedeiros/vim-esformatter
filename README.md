@@ -36,10 +36,22 @@ To format just one block of code select it on visual mode and execute
 
 To make it easier you can create a mapping on your `.vimrc` file like:
 
-```js
+```VimL
 " will run esformatter after pressing <leader> followed by the 'e' and 's' keys
 nnoremap <silent> <leader>es :Esformatter<CR>
 vnoremap <silent> <leader>es :EsformatterVisual<CR>
+```
+
+To specify a style preset in `.vimrc` (for example, jQuery):
+
+```VimL
+let g:esformatter_preset = 'jQuery'
+```
+
+To specify an `esformatter` configuration file:
+
+```VimL
+let g:esformatter_config = '/path/to/config.json'
 ```
 
 

@@ -19,6 +19,17 @@ endif
 
 let loaded_esformatter = 1
 
+function! s:EsformatterCommand()
+  let options = ''
+  if exists('g:esformatter_preset')
+      let options .= '-p ' . shellescape(g:esformatter_preset)
+  endif
+  if exists('g:esformatter_config')
+      let options .= '-c ' . shellescape(g:esformatter_config)
+  endif
+  return ['esformatter', options]
+endfunction
+
 function! s:EsformatterNormal()
   " store current cursor position and change the working directory
   let win_view = winsaveview()
@@ -27,7 +38,7 @@ function! s:EsformatterNormal()
   execute ':lcd' . file_wd
 
   " pass whole buffer content to esformatter
-  let output = system('esformatter', join(getline(1,'$'), "\n"))
+  let output = system(join(s:EsformatterCommand(), ' '), join(getline(1,'$'), "\n"))
 
   if v:shell_error
     echom "Error while executing esformatter! no changes made."
@@ -68,7 +79,7 @@ function! s:EsformatterVisual() range
     let restore_last_line = 1
   endif
 
-  let output = system('esformatter', join(input, "\n"))
+  let output = system(join(s:EsformatterCommand(), ' '), join(input, "\n"))
 
   if v:shell_error
     echom 'Error while executing esformatter! no changes made.'
