@@ -97,7 +97,6 @@ function! s:EsformatterVisual() range
   endif
 
   " Clean up: restore working directory
-  call winrestview(win_view)
   execute ':lcd' . current_wd
 endfunction
 
