@@ -88,9 +88,15 @@ function! s:EsformatterVisual() range
 
     " add new lines to the buffer
     call append(range_start - 1, new_lines)
+
+    " Clean up: restore previous cursor position
+    call winrestview(win_view)
+    " recreate the visual selection and cancel it, so that the formatted code
+    " can be reselected using gv
+    execute "normal! V" . (len(new_lines)-1) . "j\<esc>"
   endif
 
-  " Clean up: restore previous cursor position and working directory
+  " Clean up: restore working directory
   call winrestview(win_view)
   execute ':lcd' . current_wd
 endfunction
