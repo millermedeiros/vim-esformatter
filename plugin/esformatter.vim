@@ -3,7 +3,7 @@
 " Maintainer:  Miller Medeiros <http://blog.millermedeiros.com/>
 " Description: Expose commands to execute the esformatter binary on normal and
 "              visual modes.
-" Last Change: 2015-02-27
+" Last Change: 2015-06-26
 " License:     This program is free software. It comes without any warranty,
 "              to the extent permitted by applicable law. You can redistribute
 "              it and/or modify it under the terms of the Do What The Fuck You
