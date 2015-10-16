@@ -36,7 +36,7 @@ To format just one block of code select it on visual mode and execute
 
 To make it easier you can create a mapping on your `.vimrc` file like:
 
-```js
+```vim
 " will run esformatter after pressing <leader> followed by the 'e' and 's' keys
 nnoremap <silent> <leader>es :Esformatter<CR>
 vnoremap <silent> <leader>es :EsformatterVisual<CR>
