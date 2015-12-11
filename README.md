@@ -42,6 +42,11 @@ nnoremap <silent> <leader>es :Esformatter<CR>
 vnoremap <silent> <leader>es :EsformatterVisual<CR>
 ```
 
+To enable auto-format on save:
+
+```vim
+let g:esformatter_autosave = 1
+```
 
 ## License
 
