@@ -17,6 +17,8 @@ if !exists('g:esformatter_debug') && (exists('loaded_esformatter') || &cp)
   finish
 endif
 
+let loaded_esformatter = 1
+
 if !exists('g:esformatter_autosave')
     let g:esformatter_autosave = 0
 endif
@@ -24,8 +26,6 @@ endif
 if g:esformatter_autosave
     autocmd BufWritePre *.js,*.jsx,*.mjs :Esformatter
 endif
-
-let loaded_esformatter = 1
 
 function! s:EsformatterNormal()
   " store current cursor position and change the working directory
