@@ -24,7 +24,7 @@ function! s:EsformatterNormal()
   let win_view = winsaveview()
   let file_wd = expand('%:p:h')
   let current_wd = getcwd()
-  execute ':lcd' . file_wd
+  execute ':lcd ' . file_wd
 
   " pass whole buffer content to esformatter
   let output = system('esformatter', join(getline(1,'$'), "\n"))
@@ -42,7 +42,7 @@ function! s:EsformatterNormal()
 
   " Clean up: restore previous cursor position and working directory
   call winrestview(win_view)
-  execute ':lcd' . current_wd
+  execute ':lcd ' . current_wd
 endfunction
 
 
@@ -51,7 +51,7 @@ function! s:EsformatterVisual() range
   let win_view = winsaveview()
   let file_wd = expand('%:p:h')
   let current_wd = getcwd()
-  execute ':lcd' . file_wd
+  execute ':lcd ' . file_wd
 
   " get lines from the current selection and store the first line number
   let range_start = line("'<")
@@ -97,7 +97,7 @@ function! s:EsformatterVisual() range
   endif
 
   " Clean up: restore working directory
-  execute ':lcd' . current_wd
+  execute ':lcd ' . current_wd
 endfunction
 
 command! -range=0 -complete=shellcmd Esformatter call s:EsformatterNormal()
